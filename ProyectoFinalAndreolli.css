@@ -1,0 +1,181 @@
+                /* Estilos */
+
+body{
+    background-color: #363848;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+#logo{
+    margin-left: 20px;
+}
+
+.palabras{
+    font-weight: bold;
+    color: darksalmon;
+    font-style: normal;
+}
+
+#formulario-de-ingreso{
+    margin-top: 100px;
+}
+
+#ingreso{
+color: white;
+width: 200px;
+height: 150px;
+position: relative;
+margin-left: 85%;
+margin-top: -150px;
+
+}
+
+#titulo-ingreso{
+    font-size: 15px;
+    text-decoration: underline;
+    color: rgb(216, 206, 206)
+}
+
+input{
+    margin-top: 10px;
+}
+
+#boton1{
+    margin-top: 10px;
+    margin-left: 35px;
+    background-attachment: fixed;
+    background-color:darksalmon;
+}
+
+#botonSalir{
+    background-color: saddlebrown;
+}
+
+.hidden { 
+    display: none; }
+
+
+                    /* Conversion */
+
+* {
+    box-sizing: border-box
+   }
+   
+   .titulo{
+    font-family:'Times New Roman', Times, serif;
+    color: #4e9e67;
+    font-size: 40px;
+    display: flex;
+    margin-left: 390px;
+   }
+ 
+   .card {
+    border-radius: 30px;
+    width: 700px;
+    height: 400px;
+    display: flex;
+    margin-left: 300px ;
+    padding: 20px;
+    background-color:#3f40aa73;
+   }
+   
+   
+   .left {
+    width:150px ;
+    height: 50px;
+    margin-left: 50px;
+   }
+
+   .select1{
+    background-color: darksalmon;
+    font-size: 20px;
+   
+   }
+   
+   
+   
+   .right {
+    width:150px ;
+    height: 50px;
+    margin-left: 150px;
+    margin-right: 20px;
+   }
+   .select2{
+    font-size: 20px;
+    background-color: darksalmon;
+   }
+   
+
+   #amount{
+    background-color: darksalmon;
+    font-size:20px;
+    position: relative;
+    margin-top: 70px;
+    margin-left: -400px;
+   }
+   
+   
+   #boton-de-conversion{
+    background-color: #4e9e67;
+    font-size: 20px;
+    margin-left: 30px;
+   }
+
+
+   .info {
+    position: relative;
+    border-radius: 20px;
+    background-color: darksalmon;
+    width:300px ;
+    height: 130px;
+    margin-top:160px;
+    margin-left: -350px;
+   }
+
+   .tituloSal{
+    margin-top: 10px;
+    margin-left: 100px;
+   }
+
+    #titulo_tabla{
+        margin-left: 470px;
+        margin-top: 50px;
+        margin-bottom: -60px;
+        color: #4e9e67;
+    }
+
+   #historial{
+    width: 400px;
+    height: 200px;
+    margin-top: 100px;
+    margin-left: 420px;
+    
+   }
+
+   #tabla_historial{
+    background-color: #4e9e67;
+    border-radius: 20px;
+    border-collapse: separate;
+    margin-bottom: 30px;
+    width: 400px;
+    height: 400px;
+   }
+
+   th, td{
+    border: black 2px solid;
+   }
+
+   #body_conversiones{
+    width: 400px;
+    height: 100px;
+    margin-top: 10px;
+   }
+
+   #limpiar{
+    color: white ;
+    margin-left: 150px ;
+    margin-bottom: 20px;
+    background-color: darkred;
+   }
+
+ 
+   
