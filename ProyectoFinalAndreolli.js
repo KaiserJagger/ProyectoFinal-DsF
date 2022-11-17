@@ -46,7 +46,7 @@ contentType: 'html', // 'html' o 'null' para texto sin formato
                                 //Funciones de ingreso de usuario 
 
 function obtenerCuentas(){
-    const cuentaLS = localStorage.getItem("cuentas");
+    const cuentaLS = sessionStorage.getItem("cuentas");
     if(cuentaLS !== null){
         return JSON.parse(cuentaLS);
     }
@@ -82,7 +82,7 @@ function usuarioExistente(email){
                  clave: clave,
                  });
                       
-          localStorage.setItem("cuentas", JSON.stringify(cuentas));
+          sessionStorage.setItem("cuentas", JSON.stringify(cuentas));
             
           alert("Ingreso correcto");
           mostrarUsuario(nombre);
