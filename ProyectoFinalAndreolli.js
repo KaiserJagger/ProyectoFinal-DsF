@@ -332,7 +332,7 @@ function dsf(){
             td2.innerText = el.Monto_en_pesos;
 
             const td3 = document.createElement("td");
-            td3.innerText = el.Monto_convertido;
+            td3.innerText = el.Monto_convertido.toFixed(2);
 
             const td4 = document.createElement("td");
             td4.innerText = el.Moneda;
