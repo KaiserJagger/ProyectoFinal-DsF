@@ -1,5 +1,4 @@
-                                     
-                                                        /   * Proyecto Final *     /
+                                          /   * Proyecto Final *     /
     
 /* 
         Nombre: Nicolas Andreolli
@@ -16,18 +15,18 @@
         '<i class="palabras">Dinero</i>', 
         '<i class="palabras">Sin</i>', 
         '<i class="palabras">Fronteras</i>'
-    ],
-    
-    typeSpeed: 75, // Velocidad en mlisegundos para poner una letra,
-    startDelay: 300, // Tiempo de retraso en iniciar la animacion. Aplica tambien cuando termina y vuelve a iniciar,
-    backSpeed: 75, // Velocidad en milisegundos para borrrar una letra,
-    smartBackspace: true, // Eliminar solamente las palabras que sean nuevas en una cadena de texto.
-    backDelay: 1500, // Tiempo de espera despues de que termina de escribir una palabra.
-    loop: true, // Repetir el array de strings
-    loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
-    showCursor: true, // Mostrar cursor palpitanto
-    cursorChar: '$', // Caracter para el cursor
-    contentType: 'html', // 'html' o 'null' para texto sin formato
+],
+// stringsElement: '#cadenas-texto', // ID del elemento que contiene cadenas de texto a mostrar.
+typeSpeed: 75, // Velocidad en mlisegundos para poner una letra,
+startDelay: 300, // Tiempo de retraso en iniciar la animacion. Aplica tambien cuando termina y vuelve a iniciar,
+backSpeed: 75, // Velocidad en milisegundos para borrrar una letra,
+smartBackspace: true, // Eliminar solamente las palabras que sean nuevas en una cadena de texto.
+backDelay: 1500, // Tiempo de espera despues de que termina de escribir una palabra.
+loop: true, // Repetir el array de strings
+loopCount: false, // Cantidad de veces a repetir el array.  false = infinite
+showCursor: true, // Mostrar cursor palpitanto
+cursorChar: '$', // Caracter para el cursor
+contentType: 'html', // 'html' o 'null' para texto sin formato
 
  });
                         
@@ -41,7 +40,6 @@
  const inputNombre = document.getElementById("nombre");
  const inputEmail = document.getElementById("email");
  const inputClave = document.getElementById("clave");
- const salirSesion = document.getElementById("botonSalir");
  
    
                                 //Funciones de ingreso de usuario 
@@ -65,7 +63,7 @@ function usuarioExistente(email){
 
  formularioDeIngreso.addEventListener("submit", (event) => {
  
-      event.preventDefault();
+         event.preventDefault();
      
      // Obtenemos los datos del input
      const nombre = inputNombre.value;
@@ -73,175 +71,176 @@ function usuarioExistente(email){
      const clave = inputClave.value;
  
               
-     //chequeo que el usuario no este registrado
-     if(usuarioExistente(email)){
+             //chequeo que el usuario no este registrado
+         if(usuarioExistente(email)){
              
-     //cargo los datos en el array
-     cuentas.push({
-        nombre : nombre,
-        email: email,
-        clave: clave,
-      });
+             //cargo los datos en el array
+             cuentas.push({
+                 nombre : nombre,
+                 email: email,
+                 clave: clave,
+                 });
                       
-     sessionStorage.setItem("cuentas", JSON.stringify(cuentas));
+          sessionStorage.setItem("cuentas", JSON.stringify(cuentas));
             
-     alert("Ingreso correcto");
-     mostrarUsuario(nombre);
+          alert("Ingreso correcto");//-------------------
+          mostrarUsuario(nombre);
  
-     }else{
-        alert("Usuario existente");
-     } 
+         }else{
+             alert("Usuario existente");//-----------------
+         } 
   
-     //limpio los input
-     nombre.value = "";
-     email.value = "";
-     clave.value = "";    
+         //limpio los input
+                 nombre.value = "";
+                 email.value = "";
+                 clave.value = "";    
             
-});
+ 
+     });
 
-                               //Evento de salir de sesion
+                                    //Evento de salir de sesion
                                     
-  function mostrarUsuario(nombre){
-      // Limpiar el header
-      headerIngreso.innerText = "Bienvenido " + nombre;
+      function mostrarUsuario(nombre){
+        // Limpiar el header
+        headerIngreso.innerText = "Bienvenido " + nombre;
        
-      const salir = document.createElement("button");
-      salir.id = "botonSalir";
-      salir.innerText = "Salir";
-      salir.type = "button";
+        const salir = document.createElement("button");
+        salir.id = "botonSalir";
+        salir.innerText = "Salir";
+        salir.type = "button";
       
-      headerIngreso.append(salir);
+        headerIngreso.append(salir);
         
-      salir.addEventListener("click" ,(event) => {
-      event.preventDefault();
-      window.location.reload()
+        salir.addEventListener("click" ,(event) => {
+        event.preventDefault();
+        window.location.reload()
+        
       });
     
-   }
+    }
    
 
                                     //Variables De Conversion
-  //Arreglo de tipos de cambio
-  const Cambios = [
+//Arreglo de tipos de cambio
+const Cambios = [
     "Pesos Argentinos", 
     "Dolares Estadounidenses",
-  ];
-  //Descuento por servicios
-  const desc = 0.10; 
+];
+//Descuento por servicios
+const desc = 0.10; 
 
-  //Precio del dolar en relacion al peso argentino
-  const dolar = 162.13;
+//Precio del dolar en relacion al peso argentino
+const dolar = 162.13;
 
-  //Arreglo donde voy almacenar las conversiones
-  let historialConversiones = [];
+ //Arreglo donde voy almacenar las conversiones
+ let historialConversiones = [];
 
 
-  //Funcion de control
-  function dsf(){
+//Funcion de control
+function dsf(){
 
     // Creo el select paises
-    const selectCountrys = document.getElementById("select_paises");
+  const selectCountrys = document.getElementById("select_paises");
 
-    function selectCountry(listCountrys){
-      //  Creo las opciones
-       for (const paises of listCountrys){        
-           const option = document.createElement("option");
-           option.innerText = paises.pais;
+        function selectCountry(listCountrys){
+            //  Creo las opciones
+            for (const paises of listCountrys){        
+                const option = document.createElement("option");
+                option.innerText = paises.pais;
         
-            //Agrego opciones al select
-            selectCountrys.append(option);
+                //Agrego opciones al select
+                selectCountrys.append(option);
+            }
         }
-    }
-      //Agrego evento de change
-      selectCountrys.addEventListener("change",(event) =>{
-      const target = event.target;
-      const valor = target.value;
-      // console.log(valor)
-       });
-
-
-      //Creo select de tipo de monedas
-      const selectMoney = document.getElementById("select_moneda");
-      //Creo las opciones
-      for (const cambio of Cambios){
-          const option = document.createElement("option");
-          option.innerText = cambio;
-
-          //Agrego las opciones al sleect
-          selectMoney.append(option);
-      }
-        
-      //Agregamos evento de change
-      selectMoney.addEventListener("change", (event) => {
-          const target = event.target;
-          const valor = target.value;
+        //Agrego evento de change
+        selectCountrys.addEventListener("change",(event) =>{
+            const target = event.target;
+            // console.log(valor)
         });
+
+
+        //Creo select de tipo de monedas
+        const selectMoney = document.getElementById("select_moneda");
+         //Creo las opciones
+        for (const cambio of Cambios){
+            const option = document.createElement("option");
+            option.innerText = cambio;
+
+            //Agrego las opciones al sleect
+           selectMoney.append(option);
+        }
+        
+        //Agregamos evento de change
+        selectMoney.addEventListener("change", (event) => {
+            const target = event.target;
+            const valor = target.value;
+         });
 
     
             
-      // Creo formulario de conversion
-      const contenedor = document.getElementById("contenedor");
-      const formularioConversion = document.createElement("form");
-      formularioConversion.id= "conversion";
-      const input = document.createElement("input");
-      input.id = "amount";
-      input.placeholder = "Monto";
-      input.type = "number"; 
-      const boton = document.createElement("button");
-      boton.id = "boton-de-conversion";
-      boton.innerText = "Convertir";
-      boton.type = "submit";
+        // Creo formulario de conversion
+        const contenedor = document.getElementById("contenedor");
+        const formularioConversion = document.createElement("form");
+        formularioConversion.id= "conversion";
+        const input = document.createElement("input");
+        input.id = "amount";
+        input.placeholder = "Monto";
+        input.type = "number"; 
+        const boton = document.createElement("button");
+        boton.id = "boton-de-conversion";
+        boton.innerText = "Convertir";
+        boton.type = "submit";
 
-      //Obtengo el id de convertidor
-       const convertidor = document.getElementById("convertidor");
-       convertidor.append(formularioConversion);
-       formularioConversion.append(input, boton);
+        //Obtengo el id de convertidor
+        const convertidor = document.getElementById("convertidor");
+        convertidor.append(formularioConversion);
+        formularioConversion.append(input, boton);
         
-       const salidaDeInfo = document.getElementById("salida_info")
-       //agrego el div salidaDeInfo al contenedor
-       contenedor.append(salidaDeInfo);
+        const salidaDeInfo = document.getElementById("salida_info")
+        //agrego el div salidaDeInfo al contenedor
+        contenedor.append(salidaDeInfo);
 
-       //Informe de conversion
-       const p = document.createElement("p");
-       p.id = "informe";
-       salidaDeInfo.append(p);
+        //Informe de conversion
+        const p = document.createElement("p");
+        p.id = "informe";
+        salidaDeInfo.append(p);
 
 
-                         //Evento de conversion
+        //Busco si pais existe
+        function buscarPais(pais){
+            return listaPaises.find((el) =>{
+                return el.pais === pais;
+            });
+        }
+
+                            //Evento de conversion
         
         const conversion = document.getElementById("conversion");
         const enviarConversion = (event) => {
-           event.preventDefault();
+                event.preventDefault();
       
-           //obtengo el monto a convertir
-            const enterAmount = document.getElementById("amount");
-            if (enterAmount.value.length === 0){
-                Toastify({
-                   text: "Ingrese un monto a mandar",
-                   duration: 1500
-                 }).showToast();
-             }
+                //obtengo el monto a convertir
+                const enterAmount = document.getElementById("amount");
+                if (enterAmount.value.length === 0){
+                    Toastify({
+                        text: "Ingrese un monto a mandar",
+                        duration: 1500
+                    }).showToast();
+                }
                 
-             //Capturo el monto y lo almaceno en la variable 
-             let amount = enterAmount.value;
+                //Capturo el monto y lo almaceno en la variable 
+                let amount = enterAmount.value;
                 
-             //Hago la conversion y descuento el porcentaje
-             let descTotal = amount * desc;
+                //Hago la conversion y descuento el porcentaje
+                let descTotal = amount * desc;
                 
-             //Le resto el desceunto que se le aplica por los servicios
-             let res = amount - descTotal;
+                //Le resto el desceunto que se le aplica por los servicios
+                let res = amount - descTotal;
 
-            
-              //Busco si pais existe
-              function buscarPais(pais){
-                 return listaPaises.find((el) =>{
-                 return el.pais === pais;
-                  });
-               }
 
-               //Almaceno lo que me devuelve el find
-               const paises = buscarPais(selectCountrys.value);
-               const informe = document.getElementById("informe");        
+                //Almaceno lo que me devuelve el find
+                const paises = buscarPais(selectCountrys.value);
+                const informe = document.getElementById("informe");        
                 
                 //Hago la condicion del tipo de moneda elegido
                 if(selectMoney.value === Cambios[0]){
@@ -316,38 +315,38 @@ function usuarioExistente(email){
             }
 
             
-          //Renderizo la tabla
-          function renderizarTabla(historialConversiones){
-            const bodyTabla = document.getElementById("body_conversiones");
-            bodyTabla.innerHTML = "";
+    //Renderizo la tabla
+    function renderizarTabla(historialConversiones){
+        const bodyTabla = document.getElementById("body_conversiones");
+        bodyTabla.innerHTML = "";
 
-            for(const el of historialConversiones){
-              const tr = document.createElement("tr");
+        for(const el of historialConversiones){
+            const tr = document.createElement("tr");
 
-              const td1 = document.createElement("td");
-              td1.innerText = el.Pais;
+            const td1 = document.createElement("td");
+            td1.innerText = el.Pais;
 
-              const td2 = document.createElement("td");
-              td2.innerText = el.Monto_en_pesos;
+            const td2 = document.createElement("td");
+            td2.innerText = el.Monto_en_pesos;
 
-              const td3 = document.createElement("td");
-              td3.innerText = el.Monto_convertido.toFixed(2);
+            const td3 = document.createElement("td");
+            td3.innerText = el.Monto_convertido.toFixed(2);
 
-              const td4 = document.createElement("td");
-              td4.innerText = el.Moneda;
+            const td4 = document.createElement("td");
+            td4.innerText = el.Moneda;
 
-              //Agrego al tr
-              tr.append(td1);
-              tr.append(td2);
-              tr.append(td3);
-              tr.append(td4);
+            //Agrego al tr
+            tr.append(td1);
+            tr.append(td2);
+            tr.append(td3);
+            tr.append(td4);
 
-              //Agregar tr al body
-              bodyTabla.append(tr);
+            //Agregar tr al body
+            bodyTabla.append(tr);
         }
 
-          limpiarTabla(bodyTabla);
-      }
+        limpiarTabla(bodyTabla);
+    }
 
         //renderizo conversiones por primera vez
         renderizarTabla(historialConversiones);
@@ -364,9 +363,9 @@ function usuarioExistente(email){
                     icon: "warning",
                     buttons: true,
                     dangerMode: true,
-                })
-                 .then((willDelete) => {
-                   if (willDelete) {
+                  })
+                  .then((willDelete) => {
+                    if (willDelete) {
                       swal("Tabla limpia con exito", {
                         icon: "success",
                         });
@@ -383,6 +382,8 @@ function usuarioExistente(email){
         }
 
 
+
+           
         //Variable global de la consulta al json
         let listaPaises;
 
@@ -401,3 +402,5 @@ function usuarioExistente(email){
     }
    
 dsf();
+
+
